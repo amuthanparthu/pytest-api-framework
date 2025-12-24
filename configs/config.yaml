@@ -1,0 +1,6 @@
+base_url: ${BASE_URL}
+timeout: 10
+retry:
+  attempts: 3
+  delay: 2
+  
