@@ -1,0 +1,25 @@
+stages:
+  - test
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+services:
+  - docker:dind
+
+test_api:
+  stage: test
+  image: docker:latest
+  tags:
+    - docker
+  before_script:
+    - docker --version
+    - docker-compose --version
+  script:
+    - docker-compose up --build --abort-on-container-exit --exit-code-from pytest-runner
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - reports/
+      - allure-results/
