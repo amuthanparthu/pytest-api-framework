@@ -1,0 +1,4 @@
+[
+  {"name": "pytest", "type": "api"},
+  {"name": "framework", "type": "automation"}
+]
